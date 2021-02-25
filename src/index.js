@@ -2,7 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const log = console.log;
-const PORT = 8081;
+//const PORT = 8081;
 const app = express();
 
 // Configuring our data parsing
@@ -44,4 +44,7 @@ app.post("/verify", (req, res) => {
   }
 });
 
-app.listen(PORT, () => log("Server is starting on PORT,", 8081));
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`Our app is running on port ${ PORT }`);
+});
